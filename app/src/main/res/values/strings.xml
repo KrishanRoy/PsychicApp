@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Psychic_App_HW_ROY_KRISHAN</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">This is the Result Fragment</string>
+    <string name="main_fragment_submit_button">Submit</string>
+    <string name="correct_guess_java_text">Wow! you guessed it correct</string>
+    <string name="incorrect_guess_java_text">Sorry! try again</string>
+    <string-array name="labels_array">
+        <item>Boat</item>
+        <item>Forest</item>
+        <item>Lake</item>
+    </string-array>
+</resources>
