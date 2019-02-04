@@ -13,12 +13,10 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import com.example.krishanroy.psychic_app_hw_roy_krishan.R;
-import com.example.krishanroy.psychic_app_hw_roy_krishan.database.DrawableResources;
+import com.example.krishanroy.psychic_app_hw_roy_krishan.drawables.DrawableResources;
 
 /**
  * A simple {@link Fragment} subclass.

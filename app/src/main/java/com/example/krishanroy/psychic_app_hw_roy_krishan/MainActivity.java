@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements FragmentInteracti
 
     @Override
     public void moveFromMainToChoiceFragment(int imageSelected) {
-        ChoiceFragment choiceFragment = ChoiceFragment.newInstance(true);
+        ChoiceFragment choiceFragment = ChoiceFragment.newInstance(imageSelected);
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction
@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity implements FragmentInteracti
      */
     @Override
     public void moveFromChoiceToResultFragment(boolean perfectMatch) {
-        ResultFragment resultFragment = ResultFragment.newInstance("");
+        ResultFragment resultFragment = ResultFragment.newInstance(perfectMatch);
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction

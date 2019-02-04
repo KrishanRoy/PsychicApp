@@ -1,9 +1,7 @@
-package com.example.krishanroy.psychic_app_hw_roy_krishan.database;
+package com.example.krishanroy.psychic_app_hw_roy_krishan.drawables;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.DrawableRes;
-import android.support.v4.content.ContextCompat;
 
 import com.example.krishanroy.psychic_app_hw_roy_krishan.R;
 
@@ -12,8 +10,8 @@ import java.util.List;
 import java.util.Random;
 
 public class DrawableResources {
-    public List<Drawable> myImageList = new ArrayList<>();
-    public Context context;
+    private List<Drawable> myImageList = new ArrayList<>();
+    private Context context;
 
     public DrawableResources(Context context) {
         this.context = context;
@@ -55,13 +53,12 @@ public class DrawableResources {
         myImageList.add(lake_4);
     }
 
-    public boolean perfectMatch(int a, int b) {
+    public boolean perfectMatch(Drawable a, Drawable b) {
         return a == b;
     }
 
-    public int computerSelected() {
-        saveImagestoList();
+    public Drawable computerSelected() {
         Random random = new Random();
-        return random.nextInt(getMyImageList().size());
+        return getMyImageList().get(random.nextInt(getMyImageList().size()));
     }
 }

@@ -6,6 +6,8 @@
     <string name="main_fragment_submit_button">Submit</string>
     <string name="correct_guess_java_text">Wow! you guessed it correct</string>
     <string name="incorrect_guess_java_text">Sorry! try again</string>
+    <string name="correct_answer">Correct Answer!</string>
+    <string name="wrong_try_again">Wrong! Try again</string>
     <string-array name="labels_array">
         <item>Boat</item>
         <item>Forest</item>

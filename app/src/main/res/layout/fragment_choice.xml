@@ -11,7 +11,7 @@
         android:layout_height="0dp"
         android:layout_rowWeight="1"
         android:layout_columnWeight="1"
-        android:clickable="true"/>
+        android:clickable="true" />
 
     <ImageView
         android:id="@+id/choice_second_imageview"
@@ -19,8 +19,7 @@
         android:layout_height="0dp"
         android:layout_rowWeight="1"
         android:layout_columnWeight="1"
-        android:clickable="true"/>
-
+        android:clickable="true" />
 
     <ImageView
         android:id="@+id/choice_third_imageview"
@@ -28,7 +27,7 @@
         android:layout_height="0dp"
         android:layout_rowWeight="1"
         android:layout_columnWeight="1"
-        android:clickable="true"/>
+        android:clickable="true" />
 
     <ImageView
         android:id="@+id/choice_fourth_imageview"
@@ -36,7 +35,5 @@
         android:layout_height="0dp"
         android:layout_rowWeight="1"
         android:layout_columnWeight="1"
-        android:clickable="true"
-        />
-
+        android:clickable="true" />
 </GridLayout>

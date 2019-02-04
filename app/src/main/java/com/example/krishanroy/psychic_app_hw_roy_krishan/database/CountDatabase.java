@@ -37,7 +37,7 @@ public class CountDatabase extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(
                 "CREATE TABLE " + TABLE_NAME +
                         " (_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                        "trial_number INTEGER, success_number INTEGER);");
+                        "user_selection TEXT, computer_selection TEXT, result INTEGER);");
     }
 
     @Override
@@ -45,35 +45,34 @@ public class CountDatabase extends SQLiteOpenHelper {
         //non operational. It upgrades the entire database.
     }
 
-    /*
-    public DogImage getDogImage(String breed) {
+    /*public TrackAverage getSelectionResult(String computerSelection) {
         TrackAverage trackAverage = null;
         Cursor cursor = getReadableDatabase().rawQuery(
                 //make sure to put spaces before and after the quotation mark.
-                "SELECT " + "breed_url" + " FROM " + TABLE_NAME + " WHERE breed_name " + "= '" + breed + "'';", null);
+                "SELECT " + "user_selection" + " FROM " + TABLE_NAME + " WHERE computer_selection " + "= '" + computerSelection + "'';", null);
         if (cursor != null) {
             if (cursor.moveToFirst()) {
 
                 trackAverage = new TrackAverage(
-                        cursor.getString(cursor.getColumnIndex("breed_name")),
-                        cursor.getString(cursor.getColumnIndex("breed_url")));
-
+                        cursor.getString(cursor.getColumnIndex("user_selection")),
+                        cursor.getString(cursor.getColumnIndex("computer_selection")));
 
             }
         }
-        return dogImage;
-    }
-    */
+        return trackAverage;
+    }*/
 
-    public void addNumberOfGamesAndSuccess(int numberOfGames, int numberOfSuccess) {
+    public void addSelections(TrackAverage trackAverage) {
         Cursor cursor = getReadableDatabase().rawQuery(
-                "SELECT * FROM " + TABLE_NAME + " WHERE number_of_games = '" + numberOfGames +
-                        "' AND number_of_success = '" + numberOfSuccess + "';", null);
+                "SELECT * FROM " + TABLE_NAME + " WHERE user_selection = '" + trackAverage.getUserSelection() +
+                        "' AND computer_selection = '" + trackAverage.getComputerSelection() + "' AND result = '" + trackAverage.getResult() +
+                        "';", null);
         if (cursor.getCount() == 0) {
             getWritableDatabase().execSQL("INSERT INTO " + TABLE_NAME +
-                    "(breed_name, breed_url) VALUES('" +
-                    numberOfGames + "', '" +
-                    numberOfSuccess + "');");
+                    "(user_selection, computer_selection, result) VALUES('" +
+                    trackAverage.getUserSelection() + "', '" +
+                    trackAverage.getComputerSelection() + "', '" +
+                    trackAverage.getResult() + "');");
         }
         cursor.close();
     }
