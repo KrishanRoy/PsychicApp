@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Psychic_App_HW_ROY_KRISHAN</string>
+    <string name="app_name">Pick One</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">This is the Result Fragment</string>
@@ -8,6 +8,11 @@
     <string name="incorrect_guess_java_text">Sorry! try again</string>
     <string name="correct_answer">Correct Answer!</string>
     <string name="wrong_try_again">Wrong! Try again</string>
+    <string name="success_rate_textview_text">Your Success rate is</string>
+    <string name="user_selection_textview">Your Selection</string>
+    <string name="computer_selection_textview">Computer Selected</string>
+    <string name="choice_frag_pick_one_textview">Pick One</string>
+    <string name="main_frag_pick_one_from_below">Pick One From Below</string>
     <string-array name="labels_array">
         <item>Boat</item>
         <item>Forest</item>

@@ -3,22 +3,22 @@ package com.example.krishanroy.psychic_app_hw_roy_krishan.model;
 import android.graphics.drawable.Drawable;
 
 public class TrackAverage {
-    private Drawable userSelection;
-    private Drawable computerSelection;
+    private int userSelection;
+    private int computerSelection;
     private int result;
 
 
-    public TrackAverage(Drawable userSelection, Drawable computerSelection, int result) {
+    public TrackAverage(int userSelection, int computerSelection, int result) {
         this.userSelection = userSelection;
         this.computerSelection = computerSelection;
         this.result = result;
     }
 
-    public Drawable getUserSelection() {
+    public int getUserSelection() {
         return userSelection;
     }
 
-    public Drawable getComputerSelection() {
+    public int getComputerSelection() {
         return computerSelection;
     }
 

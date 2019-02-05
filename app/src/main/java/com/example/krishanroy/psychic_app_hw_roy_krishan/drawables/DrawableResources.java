@@ -10,55 +10,78 @@ import java.util.List;
 import java.util.Random;
 
 public class DrawableResources {
-    private List<Drawable> myImageList = new ArrayList<>();
+    private List<Integer> myBoatImageList = new ArrayList<>();
+    private List<Integer> myForestImageList = new ArrayList<>();
+    private List<Integer> myLakeImageList = new ArrayList<>();
+
+
+
     private Context context;
 
     public DrawableResources(Context context) {
         this.context = context;
     }
 
-    public List<Drawable> getMyImageList() {
+    public List<Integer> getMyBoatImageList() {
         saveImagestoList();
-        return myImageList;
+        return myBoatImageList;
+    }
+
+    public List<Integer> getMyForestImageList() {
+        saveImagestoList();
+        return myForestImageList;
+    }
+
+    public List<Integer> getMyLakeImageList() {
+        saveImagestoList();
+        return myLakeImageList;
     }
 
     public void saveImagestoList() {
-        Drawable boats_1 = context.getResources().getDrawable(R.drawable.boats_1);
-        Drawable boats_2 = context.getResources().getDrawable(R.drawable.boats_2);
-        Drawable boats_3 = context.getResources().getDrawable(R.drawable.boats_3);
-        Drawable boats_4 = context.getResources().getDrawable(R.drawable.boats_4);
-        Drawable forest_1 = context.getResources().getDrawable(R.drawable.forest_1);
-        Drawable forest_2 = context.getResources().getDrawable(R.drawable.forest_2);
-        Drawable forest_3 = context.getResources().getDrawable(R.drawable.forest_3);
-        Drawable forest_4 = context.getResources().getDrawable(R.drawable.forest_4);
-        Drawable lake_1 = context.getResources().getDrawable(R.drawable.lake_1);
-        Drawable lake_2 = context.getResources().getDrawable(R.drawable.lake_2);
-        Drawable lake_3 = context.getResources().getDrawable(R.drawable.lake_3);
-        Drawable lake_4 = context.getResources().getDrawable(R.drawable.lake_4);
+        int boats_1 = R.drawable.boats_1;
+        int boats_2 = R.drawable.boats_2;
+        int boats_3 = R.drawable.boats_3;
+        int boats_4 = R.drawable.boats_4;
+        int forest_1 = R.drawable.forest_1;
+        int forest_2 = R.drawable.forest_2;
+        int forest_3 = R.drawable.forest_3;
+        int forest_4 = R.drawable.forest_4;
+        int lake_1 = R.drawable.lake_1;
+        int lake_2 = R.drawable.lake_2;
+        int lake_3 = R.drawable.lake_3;
+        int lake_4 = R.drawable.lake_4;
 
 
-        myImageList.add(boats_1);
-        myImageList.add(boats_2);
-        myImageList.add(boats_3);
-        myImageList.add(boats_4);
+        myBoatImageList.add(boats_1);
+        myBoatImageList.add(boats_2);
+        myBoatImageList.add(boats_3);
+        myBoatImageList.add(boats_4);
 
-        myImageList.add(forest_1);
-        myImageList.add(forest_2);
-        myImageList.add(forest_3);
-        myImageList.add(forest_4);
+        myForestImageList.add(forest_1);
+        myForestImageList.add(forest_2);
+        myForestImageList.add(forest_3);
+        myForestImageList.add(forest_4);
 
-        myImageList.add(lake_1);
-        myImageList.add(lake_2);
-        myImageList.add(lake_3);
-        myImageList.add(lake_4);
+        myLakeImageList.add(lake_1);
+        myLakeImageList.add(lake_2);
+        myLakeImageList.add(lake_3);
+        myLakeImageList.add(lake_4);
     }
 
-    public boolean perfectMatch(Drawable a, Drawable b) {
+    public boolean perfectMatch(int a, int b) {
         return a == b;
     }
 
-    public Drawable computerSelected() {
+    public int computerBoatSelected() {
         Random random = new Random();
-        return getMyImageList().get(random.nextInt(getMyImageList().size()));
+        return getMyBoatImageList().get(random.nextInt(4));
+    }
+    public int computerForestSelected() {
+        Random random = new Random();
+        return getMyForestImageList().get(random.nextInt(4));
+    }
+    public int computerLakeSelected() {
+        Random random = new Random();
+        return getMyLakeImageList().get(random.nextInt(4));
     }
 }

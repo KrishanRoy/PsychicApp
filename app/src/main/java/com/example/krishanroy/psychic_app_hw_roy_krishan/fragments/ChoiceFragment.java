@@ -38,8 +38,8 @@ public class ChoiceFragment extends Fragment {
 
     private int imageSelected;
     private DrawableResources drawableResources;
-    private Drawable userSelection;
-    private Drawable computerSelection;
+    private int userSelection;
+    private int computerSelection;
     CountDatabase countDatabase;
 
     public ChoiceFragment() {
@@ -75,140 +75,162 @@ public class ChoiceFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(LayoutInflater inflater,
+                             ViewGroup container,
                              Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.fragment_choice, container, false);
-        imageView1 = rootView.findViewById(R.id.choice_first_imageview);
-        imageView2 = rootView.findViewById(R.id.choice_second_imageview);
-        imageView3 = rootView.findViewById(R.id.choice_third_imageview);
-        imageView4 = rootView.findViewById(R.id.choice_fourth_imageview);
-
+        imageView1 = rootView.findViewById(R.id.imageView1);
+        imageView2 = rootView.findViewById(R.id.imageView2);
+        imageView3 = rootView.findViewById(R.id.imageView3);
+        imageView4 = rootView.findViewById(R.id.imageView4);
         drawableResources = new DrawableResources(rootView.getContext());
         drawableResources.saveImagestoList();
         return rootView;
     }
 
     @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(@NonNull View view,
+                              @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         final View v = rootView;
         countDatabase = CountDatabase.getInstance(v.getContext());
 
         switch (imageSelected) {
             case 0:
-                imageView1.setImageDrawable(drawableResources.getMyImageList().get(0));
+                imageView1.setImageResource(drawableResources.getMyBoatImageList().get(0));
                 imageView1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        userSelection = drawableResources.getMyImageList().get(0);
-                        checkAndAddToDataBase();
+                        userSelection = drawableResources.getMyBoatImageList().get(0);
+                        checkBoatImagesAndAddToDataBase();
                     }
                 });
-
-                imageView2.setImageDrawable(drawableResources.getMyImageList().get(1));
+                imageView2.setImageResource(drawableResources.getMyBoatImageList().get(1));
                 imageView2.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        userSelection = drawableResources.getMyImageList().get(1);
-                        checkAndAddToDataBase();
+                        userSelection = drawableResources.getMyBoatImageList().get(1);
+                        checkBoatImagesAndAddToDataBase();
                     }
                 });
-                imageView3.setImageDrawable(drawableResources.getMyImageList().get(2));
+                imageView3.setImageResource(drawableResources.getMyBoatImageList().get(2));
                 imageView3.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        userSelection = drawableResources.getMyImageList().get(2);
-                        checkAndAddToDataBase();
+                        userSelection = drawableResources.getMyBoatImageList().get(2);
+                        checkBoatImagesAndAddToDataBase();
                     }
                 });
-                imageView4.setImageDrawable(drawableResources.getMyImageList().get(3));
+                imageView4.setImageResource(drawableResources.getMyBoatImageList().get(3));
                 imageView4.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        userSelection = drawableResources.getMyImageList().get(3);
-                        checkAndAddToDataBase();
+                        userSelection = drawableResources.getMyBoatImageList().get(3);
+                        checkBoatImagesAndAddToDataBase();
                     }
                 });
                 break;
             case 1:
-                imageView1.setImageDrawable(drawableResources.getMyImageList().get(4));
+                imageView1.setImageResource(drawableResources.getMyForestImageList().get(0));
                 imageView1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        userSelection = drawableResources.getMyImageList().get(4);
-                        checkAndAddToDataBase();
+                        userSelection = drawableResources.getMyForestImageList().get(0);
+                        checkForestImagesAndAddToDataBase();
                     }
                 });
-                imageView2.setImageDrawable(drawableResources.getMyImageList().get(5));
+                imageView2.setImageResource(drawableResources.getMyForestImageList().get(1));
                 imageView2.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        userSelection = drawableResources.getMyImageList().get(5);
-                        checkAndAddToDataBase();
+                        userSelection = drawableResources.getMyForestImageList().get(1);
+                        checkForestImagesAndAddToDataBase();
                     }
                 });
-                imageView3.setImageDrawable(drawableResources.getMyImageList().get(6));
+                imageView3.setImageResource(drawableResources.getMyForestImageList().get(2));
                 imageView3.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        userSelection = drawableResources.getMyImageList().get(6);
-                        checkAndAddToDataBase();
+                        userSelection = drawableResources.getMyForestImageList().get(2);
+                        checkForestImagesAndAddToDataBase();
                     }
                 });
-                imageView4.setImageDrawable(drawableResources.getMyImageList().get(7));
+                imageView4.setImageResource(drawableResources.getMyForestImageList().get(3));
                 imageView4.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        userSelection = drawableResources.getMyImageList().get(7);
-                        checkAndAddToDataBase();
+                        userSelection = drawableResources.getMyForestImageList().get(3);
+                        checkForestImagesAndAddToDataBase();
                     }
                 });
                 break;
             case 2:
-                imageView1.setImageDrawable(drawableResources.getMyImageList().get(8));
-                imageView4.setOnClickListener(new View.OnClickListener() {
+                imageView1.setImageResource(drawableResources.getMyLakeImageList().get(0));
+                imageView1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        userSelection = drawableResources.getMyImageList().get(8);
-                        checkAndAddToDataBase();
+                        userSelection = drawableResources.getMyLakeImageList().get(0);
+                        checkLakeImagesAndAddToDataBase();
                     }
                 });
-                imageView2.setImageDrawable(drawableResources.getMyImageList().get(9));
+                imageView2.setImageResource(drawableResources.getMyLakeImageList().get(1));
                 imageView2.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        userSelection = drawableResources.getMyImageList().get(9);
-                        checkAndAddToDataBase();
+                        userSelection = drawableResources.getMyLakeImageList().get(1);
+                        checkLakeImagesAndAddToDataBase();
                     }
                 });
-                imageView3.setImageDrawable(drawableResources.getMyImageList().get(10));
+                imageView3.setImageResource(drawableResources.getMyLakeImageList().get(2));
                 imageView3.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        userSelection = drawableResources.getMyImageList().get(10);
-                        checkAndAddToDataBase();
+                        userSelection = drawableResources.getMyLakeImageList().get(2);
+                        checkLakeImagesAndAddToDataBase();
                     }
                 });
-                imageView4.setImageDrawable(drawableResources.getMyImageList().get(11));
+                imageView4.setImageResource(drawableResources.getMyLakeImageList().get(3));
                 imageView4.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        userSelection = drawableResources.getMyImageList().get(11);
-                        checkAndAddToDataBase();
+                        userSelection = drawableResources.getMyLakeImageList().get(3);
+                        checkLakeImagesAndAddToDataBase();
                     }
                 });
                 break;
         }
     }
 
-    private void checkAndAddToDataBase() {
-        computerSelection = drawableResources.computerSelected();
+    private void checkBoatImagesAndAddToDataBase() {
+        computerSelection = drawableResources.computerBoatSelected();
         Log.d(TAG, "user selection : " + userSelection + "  computer selection " + computerSelection);
         if (drawableResources.perfectMatch(userSelection, computerSelection)) {
-            listener.moveFromChoiceToResultFragment(true);
+            listener.moveFromChoiceToResultFragment(true, userSelection, computerSelection);
             countDatabase.addSelections(new TrackAverage(userSelection, computerSelection, 1));
         } else {
-            listener.moveFromChoiceToResultFragment(false);
+            listener.moveFromChoiceToResultFragment(false, userSelection, computerSelection);
+            countDatabase.addSelections(new TrackAverage(userSelection, computerSelection, 0));
+        }
+    }
+    private void checkForestImagesAndAddToDataBase() {
+        computerSelection = drawableResources.computerForestSelected();
+        Log.d(TAG, "user selection : " + userSelection + "  computer selection " + computerSelection);
+        if (drawableResources.perfectMatch(userSelection, computerSelection)) {
+            listener.moveFromChoiceToResultFragment(true, userSelection, computerSelection);
+            countDatabase.addSelections(new TrackAverage(userSelection, computerSelection, 1));
+        } else {
+            listener.moveFromChoiceToResultFragment(false, userSelection, computerSelection);
+            countDatabase.addSelections(new TrackAverage(userSelection, computerSelection, 0));
+        }
+    }
+    private void checkLakeImagesAndAddToDataBase() {
+        computerSelection = drawableResources.computerLakeSelected();
+        Log.d(TAG, "user selection : " + userSelection + "  computer selection " + computerSelection);
+        if (drawableResources.perfectMatch(userSelection, computerSelection)) {
+            listener.moveFromChoiceToResultFragment(true, userSelection, computerSelection);
+            countDatabase.addSelections(new TrackAverage(userSelection, computerSelection, 1));
+        } else {
+            listener.moveFromChoiceToResultFragment(false, userSelection, computerSelection);
             countDatabase.addSelections(new TrackAverage(userSelection, computerSelection, 0));
         }
     }

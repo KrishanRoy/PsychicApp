@@ -2,14 +2,12 @@ package com.example.krishanroy.psychic_app_hw_roy_krishan.database;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.support.annotation.Nullable;
 
 import com.example.krishanroy.psychic_app_hw_roy_krishan.model.TrackAverage;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class CountDatabase extends SQLiteOpenHelper {
     public static final String TABLE_NAME = "count";
@@ -17,18 +15,14 @@ public class CountDatabase extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "countProgress.db";
     private static CountDatabase countDatabaseInstance;
 
-    public static synchronized CountDatabase getInstance(Context context){
-        if(countDatabaseInstance == null){
+    public static synchronized CountDatabase getInstance(Context context) {
+        if (countDatabaseInstance == null) {
             countDatabaseInstance = new CountDatabase(context.getApplicationContext());
         }
         return countDatabaseInstance;
     }
 
-
-    //constructor...
     private CountDatabase(@Nullable Context context) {
-        //factories are ways to construct objects in java and
-        // another class will do it for us. [Factory design pattern]
         super(context, DATABASE_NAME, null, SCHEMA_VERSION);
     }
 
@@ -42,25 +36,7 @@ public class CountDatabase extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        //non operational. It upgrades the entire database.
     }
-
-    /*public TrackAverage getSelectionResult(String computerSelection) {
-        TrackAverage trackAverage = null;
-        Cursor cursor = getReadableDatabase().rawQuery(
-                //make sure to put spaces before and after the quotation mark.
-                "SELECT " + "user_selection" + " FROM " + TABLE_NAME + " WHERE computer_selection " + "= '" + computerSelection + "'';", null);
-        if (cursor != null) {
-            if (cursor.moveToFirst()) {
-
-                trackAverage = new TrackAverage(
-                        cursor.getString(cursor.getColumnIndex("user_selection")),
-                        cursor.getString(cursor.getColumnIndex("computer_selection")));
-
-            }
-        }
-        return trackAverage;
-    }*/
 
     public void addSelections(TrackAverage trackAverage) {
         Cursor cursor = getReadableDatabase().rawQuery(
@@ -75,6 +51,31 @@ public class CountDatabase extends SQLiteOpenHelper {
                     trackAverage.getResult() + "');");
         }
         cursor.close();
+    }
+
+    public long getProfilesCount() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        long count = DatabaseUtils.queryNumEntries(db, TABLE_NAME);
+        db.close();
+        return count;
+    }
+
+    public long getSuccessCount() {
+//        SQLiteDatabase db = this.getReadableDatabase();
+//        Cursor cursor = db.rawQuery(" SELECT COUNT(*) FROM "
+//                + TABLE_NAME + " WHERE result = '" + 1 + "'", null);
+//        return cursor.getCount();
+        int a = 0;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(" SELECT COUNT(*) FROM "
+                + TABLE_NAME + " WHERE result = '" + 1 + "';", null);
+        cursor.moveToFirst();
+        if (cursor.getCount() > 0) {
+            a = cursor.getCount();
+        }
+        cursor.close();
+        db.close();
+        return a;
     }
     //now we will create a method that will return a List with all the dogImageUrls and then we will pass it into the
     /*
@@ -96,6 +97,24 @@ public class CountDatabase extends SQLiteOpenHelper {
         return trackAverageList;
     }
 */
+
+    /*public TrackAverage getSelectionResult(String computerSelection) {
+        TrackAverage trackAverage = null;
+        Cursor cursor = getReadableDatabase().rawQuery(
+                //make sure to put spaces before and after the quotation mark.
+                "SELECT " + "user_selection" + " FROM " + TABLE_NAME + " WHERE computer_selection " + "= '" + computerSelection + "'';", null);
+        if (cursor != null) {
+            if (cursor.moveToFirst()) {
+
+                trackAverage = new TrackAverage(
+                        cursor.getString(cursor.getColumnIndex("user_selection")),
+                        cursor.getString(cursor.getColumnIndex("computer_selection")));
+
+            }
+        }
+        return trackAverage;
+    }*/
+
 }
 
 
