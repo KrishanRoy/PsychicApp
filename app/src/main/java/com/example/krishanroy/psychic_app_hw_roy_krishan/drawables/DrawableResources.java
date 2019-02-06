@@ -1,7 +1,6 @@
 package com.example.krishanroy.psychic_app_hw_roy_krishan.drawables;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 
 import com.example.krishanroy.psychic_app_hw_roy_krishan.R;
 
@@ -13,7 +12,6 @@ public class DrawableResources {
     private List<Integer> myBoatImageList = new ArrayList<>();
     private List<Integer> myForestImageList = new ArrayList<>();
     private List<Integer> myLakeImageList = new ArrayList<>();
-
 
 
     private Context context;
@@ -50,18 +48,14 @@ public class DrawableResources {
         int lake_2 = R.drawable.lake_2;
         int lake_3 = R.drawable.lake_3;
         int lake_4 = R.drawable.lake_4;
-
-
         myBoatImageList.add(boats_1);
         myBoatImageList.add(boats_2);
         myBoatImageList.add(boats_3);
         myBoatImageList.add(boats_4);
-
         myForestImageList.add(forest_1);
         myForestImageList.add(forest_2);
         myForestImageList.add(forest_3);
         myForestImageList.add(forest_4);
-
         myLakeImageList.add(lake_1);
         myLakeImageList.add(lake_2);
         myLakeImageList.add(lake_3);
@@ -76,10 +70,12 @@ public class DrawableResources {
         Random random = new Random();
         return getMyBoatImageList().get(random.nextInt(4));
     }
+
     public int computerForestSelected() {
         Random random = new Random();
         return getMyForestImageList().get(random.nextInt(4));
     }
+
     public int computerLakeSelected() {
         Random random = new Random();
         return getMyLakeImageList().get(random.nextInt(4));

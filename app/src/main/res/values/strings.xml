@@ -6,8 +6,8 @@
     <string name="main_fragment_submit_button">Submit</string>
     <string name="correct_guess_java_text">Wow! you guessed it correct</string>
     <string name="incorrect_guess_java_text">Sorry! try again</string>
-    <string name="correct_answer">Correct Answer!</string>
-    <string name="wrong_try_again">Wrong! Try again</string>
+    <string name="correct_answer">Correct!!</string>
+    <string name="wrong_try_again">Ishh! Almost!</string>
     <string name="success_rate_textview_text">Your Success rate is</string>
     <string name="user_selection_textview">Your Selection</string>
     <string name="computer_selection_textview">Computer Selected</string>

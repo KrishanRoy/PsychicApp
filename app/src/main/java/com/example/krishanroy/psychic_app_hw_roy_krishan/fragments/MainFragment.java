@@ -18,9 +18,6 @@ import android.widget.Spinner;
 import com.example.krishanroy.psychic_app_hw_roy_krishan.R;
 import com.example.krishanroy.psychic_app_hw_roy_krishan.drawables.DrawableResources;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class MainFragment extends Fragment {
     public static final String MAIN_FRAGMENT_INT_KEY = "main argument string key";
     public static final String TAG = "something";
@@ -32,7 +29,6 @@ public class MainFragment extends Fragment {
 
 
     public MainFragment() {
-        // Required empty public constructor
     }
 
     public static MainFragment newInstance(int position) {

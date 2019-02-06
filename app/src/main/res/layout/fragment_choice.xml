@@ -14,6 +14,7 @@
         android:layout_marginTop="150dp"
         app:cardBackgroundColor="#E6D444"
         app:cardElevation="12dp"
+        app:cardCornerRadius="12dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -37,6 +38,7 @@
         android:layout_marginRight="20dp"
         app:cardBackgroundColor="#E6D444"
         app:cardElevation="12dp"
+        app:cardCornerRadius="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -58,6 +60,7 @@
         android:layout_marginBottom="80dp"
         app:cardBackgroundColor="#E6D444"
         app:cardElevation="12dp"
+        app:cardCornerRadius="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/card_1">
@@ -81,6 +84,7 @@
         android:layout_marginRight="20dp"
         app:cardBackgroundColor="#E6D444"
         app:cardElevation="12dp"
+        app:cardCornerRadius="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/card_2">
 

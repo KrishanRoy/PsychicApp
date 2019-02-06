@@ -2,7 +2,6 @@ package com.example.krishanroy.psychic_app_hw_roy_krishan.fragments;
 
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -26,8 +25,6 @@ import static android.content.ContentValues.TAG;
  */
 public class ChoiceFragment extends Fragment {
 
-
-    private static final String CHOICE_FRAGMENT_BOOLEAN_KEY = "choice fragment boolean key";
     private static final String CHOICE_FRAGMENT_INT_KEY = "choice fragment string key";
     private View rootView;
     private FragmentInteractionInterface listener;
@@ -43,7 +40,6 @@ public class ChoiceFragment extends Fragment {
     CountDatabase countDatabase;
 
     public ChoiceFragment() {
-        // Required empty public constructor
     }
 
     public static ChoiceFragment newInstance(int imageSelected) {
@@ -207,6 +203,7 @@ public class ChoiceFragment extends Fragment {
         if (drawableResources.perfectMatch(userSelection, computerSelection)) {
             listener.moveFromChoiceToResultFragment(true, userSelection, computerSelection);
             countDatabase.addSelections(new TrackAverage(userSelection, computerSelection, 1));
+
         } else {
             listener.moveFromChoiceToResultFragment(false, userSelection, computerSelection);
             countDatabase.addSelections(new TrackAverage(userSelection, computerSelection, 0));

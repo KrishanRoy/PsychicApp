@@ -1,7 +1,6 @@
 package com.example.krishanroy.psychic_app_hw_roy_krishan.fragments;
 
 
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -18,9 +17,6 @@ import java.io.Serializable;
 
 import static com.example.krishanroy.psychic_app_hw_roy_krishan.fragments.MainFragment.TAG;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class ResultFragment extends Fragment implements Serializable {
     private View rootView;
     private boolean result;
@@ -33,15 +29,12 @@ public class ResultFragment extends Fragment implements Serializable {
     private int userSelected;
 
 
-
     private static final String RESULT_FRAGMENT_BOOLEAN_KEY = "result fragment string key";
     private static final String RESULT_FRAGMENT_COMPUTER_SELECTED_KEY = "result fragment computer string key";
     private static final String RESULT_FRAGMENT_USER_SELECTED_KEY = "result fragment user string key";
 
 
-
     public ResultFragment() {
-        // Required empty public constructor
     }
 
     public static ResultFragment newInstance(boolean perfectMatch, int userSelected, int computerSelected) {
@@ -89,8 +82,10 @@ public class ResultFragment extends Fragment implements Serializable {
 
         return rootView;
     }
-    private long averageSuccess(){
-        Log.d(TAG, "averageSuccess: " + countDatabase.getSuccessCount() + "  total game: " + countDatabase.getProfilesCount());
-        return (countDatabase.getSuccessCount()/countDatabase.getProfilesCount()) * 100;
+
+    private String averageSuccess() {
+        int a = countDatabase.getSuccessCount() * 100;
+        int b = countDatabase.getProfilesCount();
+        return String.valueOf(a / b);
     }
 }

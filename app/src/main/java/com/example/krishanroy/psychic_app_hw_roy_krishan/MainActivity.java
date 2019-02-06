@@ -1,6 +1,5 @@
 package com.example.krishanroy.psychic_app_hw_roy_krishan;
 
-import android.graphics.drawable.Drawable;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
@@ -12,9 +11,6 @@ import com.example.krishanroy.psychic_app_hw_roy_krishan.fragments.FragmentInter
 import com.example.krishanroy.psychic_app_hw_roy_krishan.fragments.MainFragment;
 import com.example.krishanroy.psychic_app_hw_roy_krishan.fragments.ResultFragment;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
 
 public class MainActivity extends AppCompatActivity implements FragmentInteractionInterface {
 

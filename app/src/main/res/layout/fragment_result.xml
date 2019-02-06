@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.ResultFragment">
+    tools:context=".fragments.ResultFragment"
+    android:background="#C9C387">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
         android:id="@+id/result_fragment_progress_textview"
         android:layout_width="match_parent"
