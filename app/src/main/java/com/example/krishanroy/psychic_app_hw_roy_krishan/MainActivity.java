@@ -1,7 +1,5 @@
 package com.example.krishanroy.psychic_app_hw_roy_krishan;
 
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -20,19 +18,17 @@ public class MainActivity extends AppCompatActivity implements FragmentInteracti
         setContentView(R.layout.activity_main);
 
         MainFragment mainFragment = MainFragment.newInstance(-1);
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction
+        getSupportFragmentManager()
+                .beginTransaction()
                 .replace(R.id.fragment_container_framelayout, mainFragment)
                 .commit();
     }
+
     @Override
     public void moveFromMainToChoiceFragment(int imageSelected) {
         ChoiceFragment choiceFragment = ChoiceFragment.newInstance(imageSelected);
-
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction
+        getSupportFragmentManager()
+                .beginTransaction()
                 .replace(R.id.fragment_container_framelayout, choiceFragment)
                 .addToBackStack("choice")
                 .commit();
@@ -41,9 +37,8 @@ public class MainActivity extends AppCompatActivity implements FragmentInteracti
     @Override
     public void moveFromChoiceToResultFragment(boolean perfectMatch, int userSelected, int computerSelected) {
         ResultFragment resultFragment = ResultFragment.newInstance(perfectMatch, userSelected, computerSelected);
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction
+        getSupportFragmentManager()
+                .beginTransaction()
                 .replace(R.id.fragment_container_framelayout, resultFragment)
                 .addToBackStack("result")
                 .commit();
@@ -52,11 +47,10 @@ public class MainActivity extends AppCompatActivity implements FragmentInteracti
     @Override
     public void moveFromResultToRecyclerViewFragment() {
         RecyclerViewFragment recyclerViewFragment = RecyclerViewFragment.newInstance();
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.fragment_container_framelayout, recyclerViewFragment)
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragment_container_framelayout, recyclerViewFragment)
                 .addToBackStack("recycle")
                 .commit();
-
     }
 }
