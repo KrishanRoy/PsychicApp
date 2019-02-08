@@ -83,7 +83,7 @@ public class ChoiceFragment extends Fragment {
         imageView3 = rootView.findViewById(R.id.imageView3);
         imageView4 = rootView.findViewById(R.id.imageView4);
         imageViews = new ImageView[]{imageView1, imageView2, imageView3, imageView4};
-        drawableResources = new DrawableResources();
+        drawableResources = DrawableResources.getDrawableResources();
         drawableResources.saveImagestoList();
         return rootView;
     }

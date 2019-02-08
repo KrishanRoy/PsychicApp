@@ -1,6 +1,7 @@
 package com.example.krishanroy.psychic_app_hw_roy_krishan.drawables;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 
 import com.example.krishanroy.psychic_app_hw_roy_krishan.R;
 
@@ -13,18 +14,27 @@ public class DrawableResources {
     private List<Integer> myForestImageList = new ArrayList<>();
     private List<Integer> myLakeImageList = new ArrayList<>();
 
+    @NonNull public static DrawableResources getDrawableResources() {
+        return new DrawableResources();
+    }
+
+    private DrawableResources() { }
+
     public List<Integer> getMyBoatImageList() {
         saveImagestoList();
         return myBoatImageList;
     }
+
     public List<Integer> getMyForestImageList() {
         saveImagestoList();
         return myForestImageList;
     }
+
     public List<Integer> getMyLakeImageList() {
         saveImagestoList();
         return myLakeImageList;
     }
+
     public void saveImagestoList() {
         myBoatImageList.add(R.drawable.boats_1);
         myBoatImageList.add(R.drawable.boats_2);
