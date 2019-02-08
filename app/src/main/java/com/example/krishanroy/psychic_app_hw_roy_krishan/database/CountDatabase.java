@@ -2,18 +2,14 @@ package com.example.krishanroy.psychic_app_hw_roy_krishan.database;
 
 import android.content.Context;
 import android.database.Cursor;
-import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.support.annotation.Nullable;
-import android.util.Log;
 
 import com.example.krishanroy.psychic_app_hw_roy_krishan.model.TrackAverage;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static com.example.krishanroy.psychic_app_hw_roy_krishan.fragments.MainFragment.TAG;
 
 public class CountDatabase extends SQLiteOpenHelper {
     public static final String TABLE_NAME = "count";

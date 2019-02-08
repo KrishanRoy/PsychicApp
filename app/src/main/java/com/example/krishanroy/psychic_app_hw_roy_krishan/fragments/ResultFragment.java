@@ -4,7 +4,6 @@ package com.example.krishanroy.psychic_app_hw_roy_krishan.fragments;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,8 +14,6 @@ import com.example.krishanroy.psychic_app_hw_roy_krishan.R;
 import com.example.krishanroy.psychic_app_hw_roy_krishan.database.CountDatabase;
 
 import java.io.Serializable;
-
-import static com.example.krishanroy.psychic_app_hw_roy_krishan.fragments.MainFragment.TAG;
 
 public class ResultFragment extends Fragment implements Serializable {
     private View rootView;
@@ -57,7 +54,6 @@ public class ResultFragment extends Fragment implements Serializable {
             result = getArguments().getBoolean(RESULT_FRAGMENT_BOOLEAN_KEY);
             userSelected = getArguments().getInt(RESULT_FRAGMENT_USER_SELECTED_KEY);
             computerSelected = getArguments().getInt(RESULT_FRAGMENT_COMPUTER_SELECTED_KEY);
-            Log.d(TAG, "result: " + result);
         }
     }
 

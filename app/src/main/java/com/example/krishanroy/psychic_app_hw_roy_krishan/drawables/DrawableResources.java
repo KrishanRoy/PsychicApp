@@ -1,6 +1,5 @@
 package com.example.krishanroy.psychic_app_hw_roy_krishan.drawables;
 
-import android.content.Context;
 import android.support.annotation.NonNull;
 
 import com.example.krishanroy.psychic_app_hw_roy_krishan.R;

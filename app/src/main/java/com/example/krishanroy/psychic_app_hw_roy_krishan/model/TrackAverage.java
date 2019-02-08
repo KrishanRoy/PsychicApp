@@ -1,7 +1,5 @@
 package com.example.krishanroy.psychic_app_hw_roy_krishan.model;
 
-import android.graphics.drawable.Drawable;
-
 public class TrackAverage {
     private int userSelection;
     private int computerSelection;

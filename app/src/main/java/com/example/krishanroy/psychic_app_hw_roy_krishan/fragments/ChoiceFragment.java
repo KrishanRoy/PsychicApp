@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,14 +16,6 @@ import com.example.krishanroy.psychic_app_hw_roy_krishan.database.CountDatabase;
 import com.example.krishanroy.psychic_app_hw_roy_krishan.drawables.DrawableResources;
 import com.example.krishanroy.psychic_app_hw_roy_krishan.model.TrackAverage;
 
-
-import java.util.List;
-
-import static android.content.ContentValues.TAG;
-
-/**
- * A simple {@link Fragment} subclass.
- */
 public class ChoiceFragment extends Fragment {
 
     private static final String CHOICE_FRAGMENT_INT_KEY = "choice fragment string key";
@@ -102,7 +93,8 @@ public class ChoiceFragment extends Fragment {
                     @Override
                     public void onClick(View v) {
                         userSelection = drawableResources.getMyBoatImageList().get(0);
-                        checkBoatImagesAndAddToDataBase();
+                        computerSelection = drawableResources.computerBoatSelected();
+                        checkAndAddToDataBase();
                     }
                 });
                 imageViews[1].setImageResource(drawableResources.getMyBoatImageList().get(1));
@@ -110,7 +102,8 @@ public class ChoiceFragment extends Fragment {
                     @Override
                     public void onClick(View v) {
                         userSelection = drawableResources.getMyBoatImageList().get(1);
-                        checkBoatImagesAndAddToDataBase();
+                        computerSelection = drawableResources.computerBoatSelected();
+                        checkAndAddToDataBase();
                     }
                 });
                 imageViews[2].setImageResource(drawableResources.getMyBoatImageList().get(2));
@@ -118,7 +111,8 @@ public class ChoiceFragment extends Fragment {
                     @Override
                     public void onClick(View v) {
                         userSelection = drawableResources.getMyBoatImageList().get(2);
-                        checkBoatImagesAndAddToDataBase();
+                        computerSelection = drawableResources.computerBoatSelected();
+                        checkAndAddToDataBase();
                     }
                 });
                 imageViews[3].setImageResource(drawableResources.getMyBoatImageList().get(3));
@@ -126,7 +120,8 @@ public class ChoiceFragment extends Fragment {
                     @Override
                     public void onClick(View v) {
                         userSelection = drawableResources.getMyBoatImageList().get(3);
-                        checkBoatImagesAndAddToDataBase();
+                        computerSelection = drawableResources.computerBoatSelected();
+                        checkAndAddToDataBase();
                     }
                 });
 
@@ -137,7 +132,8 @@ public class ChoiceFragment extends Fragment {
                     @Override
                     public void onClick(View v) {
                         userSelection = drawableResources.getMyForestImageList().get(0);
-                        checkForestImagesAndAddToDataBase();
+                        computerSelection = drawableResources.computerForestSelected();
+                        checkAndAddToDataBase();
                     }
                 });
                 imageViews[1].setImageResource(drawableResources.getMyForestImageList().get(1));
@@ -145,7 +141,8 @@ public class ChoiceFragment extends Fragment {
                     @Override
                     public void onClick(View v) {
                         userSelection = drawableResources.getMyForestImageList().get(1);
-                        checkForestImagesAndAddToDataBase();
+                        computerSelection = drawableResources.computerForestSelected();
+                        checkAndAddToDataBase();
                     }
                 });
                 imageViews[2].setImageResource(drawableResources.getMyForestImageList().get(2));
@@ -153,7 +150,8 @@ public class ChoiceFragment extends Fragment {
                     @Override
                     public void onClick(View v) {
                         userSelection = drawableResources.getMyForestImageList().get(2);
-                        checkForestImagesAndAddToDataBase();
+                        computerSelection = drawableResources.computerForestSelected();
+                        checkAndAddToDataBase();
                     }
                 });
                 imageViews[3].setImageResource(drawableResources.getMyForestImageList().get(3));
@@ -161,7 +159,8 @@ public class ChoiceFragment extends Fragment {
                     @Override
                     public void onClick(View v) {
                         userSelection = drawableResources.getMyForestImageList().get(3);
-                        checkForestImagesAndAddToDataBase();
+                        computerSelection = drawableResources.computerForestSelected();
+                        checkAndAddToDataBase();
                     }
                 });
                 break;
@@ -171,7 +170,8 @@ public class ChoiceFragment extends Fragment {
                     @Override
                     public void onClick(View v) {
                         userSelection = drawableResources.getMyLakeImageList().get(0);
-                        checkLakeImagesAndAddToDataBase();
+                        computerSelection = drawableResources.computerLakeSelected();
+                        checkAndAddToDataBase();
                     }
                 });
                 imageViews[1].setImageResource(drawableResources.getMyLakeImageList().get(1));
@@ -179,7 +179,8 @@ public class ChoiceFragment extends Fragment {
                     @Override
                     public void onClick(View v) {
                         userSelection = drawableResources.getMyLakeImageList().get(1);
-                        checkLakeImagesAndAddToDataBase();
+                        computerSelection = drawableResources.computerLakeSelected();
+                        checkAndAddToDataBase();
                     }
                 });
                 imageViews[2].setImageResource(drawableResources.getMyLakeImageList().get(2));
@@ -187,7 +188,8 @@ public class ChoiceFragment extends Fragment {
                     @Override
                     public void onClick(View v) {
                         userSelection = drawableResources.getMyLakeImageList().get(2);
-                        checkLakeImagesAndAddToDataBase();
+                        computerSelection = drawableResources.computerLakeSelected();
+                        checkAndAddToDataBase();
                     }
                 });
                 imageViews[3].setImageResource(drawableResources.getMyLakeImageList().get(3));
@@ -195,41 +197,15 @@ public class ChoiceFragment extends Fragment {
                     @Override
                     public void onClick(View v) {
                         userSelection = drawableResources.getMyLakeImageList().get(3);
-                        checkLakeImagesAndAddToDataBase();
+                        computerSelection = drawableResources.computerLakeSelected();
+                        checkAndAddToDataBase();
                     }
                 });
                 break;
         }
     }
 
-    private void checkBoatImagesAndAddToDataBase() {
-        computerSelection = drawableResources.computerBoatSelected();
-        Log.d(TAG, "user selection : " + userSelection + "  computer selection " + computerSelection);
-        if (drawableResources.perfectMatch(userSelection, computerSelection)) {
-            listener.moveFromChoiceToResultFragment(true, userSelection, computerSelection);
-            countDatabase.addSelections(new TrackAverage(userSelection, computerSelection, 1));
-
-        } else {
-            listener.moveFromChoiceToResultFragment(false, userSelection, computerSelection);
-            countDatabase.addSelections(new TrackAverage(userSelection, computerSelection, 0));
-        }
-    }
-
-    private void checkForestImagesAndAddToDataBase() {
-        computerSelection = drawableResources.computerForestSelected();
-        Log.d(TAG, "user selection : " + userSelection + "  computer selection " + computerSelection);
-        if (drawableResources.perfectMatch(userSelection, computerSelection)) {
-            listener.moveFromChoiceToResultFragment(true, userSelection, computerSelection);
-            countDatabase.addSelections(new TrackAverage(userSelection, computerSelection, 1));
-        } else {
-            listener.moveFromChoiceToResultFragment(false, userSelection, computerSelection);
-            countDatabase.addSelections(new TrackAverage(userSelection, computerSelection, 0));
-        }
-    }
-
-    private void checkLakeImagesAndAddToDataBase() {
-        computerSelection = drawableResources.computerLakeSelected();
-        Log.d(TAG, "user selection : " + userSelection + "  computer selection " + computerSelection);
+    private void checkAndAddToDataBase() {
         if (drawableResources.perfectMatch(userSelection, computerSelection)) {
             listener.moveFromChoiceToResultFragment(true, userSelection, computerSelection);
             countDatabase.addSelections(new TrackAverage(userSelection, computerSelection, 1));
