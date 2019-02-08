@@ -132,32 +132,32 @@ public class ChoiceFragment extends Fragment {
 
                 break;
             case 1:
-                imageView1.setImageResource(drawableResources.getMyForestImageList().get(0));
-                imageView1.setOnClickListener(new View.OnClickListener() {
+                imageViews[0].setImageResource(drawableResources.getMyForestImageList().get(0));
+                imageViews[0].setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         userSelection = drawableResources.getMyForestImageList().get(0);
                         checkForestImagesAndAddToDataBase();
                     }
                 });
-                imageView2.setImageResource(drawableResources.getMyForestImageList().get(1));
-                imageView2.setOnClickListener(new View.OnClickListener() {
+                imageViews[1].setImageResource(drawableResources.getMyForestImageList().get(1));
+                imageViews[1].setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         userSelection = drawableResources.getMyForestImageList().get(1);
                         checkForestImagesAndAddToDataBase();
                     }
                 });
-                imageView3.setImageResource(drawableResources.getMyForestImageList().get(2));
-                imageView3.setOnClickListener(new View.OnClickListener() {
+                imageViews[2].setImageResource(drawableResources.getMyForestImageList().get(2));
+                imageViews[2].setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         userSelection = drawableResources.getMyForestImageList().get(2);
                         checkForestImagesAndAddToDataBase();
                     }
                 });
-                imageView4.setImageResource(drawableResources.getMyForestImageList().get(3));
-                imageView4.setOnClickListener(new View.OnClickListener() {
+                imageViews[3].setImageResource(drawableResources.getMyForestImageList().get(3));
+                imageViews[3].setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         userSelection = drawableResources.getMyForestImageList().get(3);
@@ -166,32 +166,32 @@ public class ChoiceFragment extends Fragment {
                 });
                 break;
             case 2:
-                imageView1.setImageResource(drawableResources.getMyLakeImageList().get(0));
-                imageView1.setOnClickListener(new View.OnClickListener() {
+                imageViews[0].setImageResource(drawableResources.getMyLakeImageList().get(0));
+                imageViews[0].setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         userSelection = drawableResources.getMyLakeImageList().get(0);
                         checkLakeImagesAndAddToDataBase();
                     }
                 });
-                imageView2.setImageResource(drawableResources.getMyLakeImageList().get(1));
-                imageView2.setOnClickListener(new View.OnClickListener() {
+                imageViews[1].setImageResource(drawableResources.getMyLakeImageList().get(1));
+                imageViews[1].setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         userSelection = drawableResources.getMyLakeImageList().get(1);
                         checkLakeImagesAndAddToDataBase();
                     }
                 });
-                imageView3.setImageResource(drawableResources.getMyLakeImageList().get(2));
-                imageView3.setOnClickListener(new View.OnClickListener() {
+                imageViews[2].setImageResource(drawableResources.getMyLakeImageList().get(2));
+                imageViews[2].setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         userSelection = drawableResources.getMyLakeImageList().get(2);
                         checkLakeImagesAndAddToDataBase();
                     }
                 });
-                imageView4.setImageResource(drawableResources.getMyLakeImageList().get(3));
-                imageView4.setOnClickListener(new View.OnClickListener() {
+                imageViews[3].setImageResource(drawableResources.getMyLakeImageList().get(3));
+                imageViews[3].setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         userSelection = drawableResources.getMyLakeImageList().get(3);
