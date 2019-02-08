@@ -18,6 +18,8 @@ import com.example.krishanroy.psychic_app_hw_roy_krishan.drawables.DrawableResou
 import com.example.krishanroy.psychic_app_hw_roy_krishan.model.TrackAverage;
 
 
+import java.util.List;
+
 import static android.content.ContentValues.TAG;
 
 /**
@@ -38,6 +40,7 @@ public class ChoiceFragment extends Fragment {
     private int userSelection;
     private int computerSelection;
     CountDatabase countDatabase;
+    private ImageView[] imageViews;
 
     public ChoiceFragment() {
     }
@@ -79,7 +82,8 @@ public class ChoiceFragment extends Fragment {
         imageView2 = rootView.findViewById(R.id.imageView2);
         imageView3 = rootView.findViewById(R.id.imageView3);
         imageView4 = rootView.findViewById(R.id.imageView4);
-        drawableResources = new DrawableResources(rootView.getContext());
+        imageViews = new ImageView[]{imageView1, imageView2, imageView3, imageView4};
+        drawableResources = new DrawableResources();
         drawableResources.saveImagestoList();
         return rootView;
     }
@@ -93,38 +97,39 @@ public class ChoiceFragment extends Fragment {
 
         switch (imageSelected) {
             case 0:
-                imageView1.setImageResource(drawableResources.getMyBoatImageList().get(0));
-                imageView1.setOnClickListener(new View.OnClickListener() {
+                imageViews[0].setImageResource(drawableResources.getMyBoatImageList().get(0));
+                imageViews[0].setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         userSelection = drawableResources.getMyBoatImageList().get(0);
                         checkBoatImagesAndAddToDataBase();
                     }
                 });
-                imageView2.setImageResource(drawableResources.getMyBoatImageList().get(1));
-                imageView2.setOnClickListener(new View.OnClickListener() {
+                imageViews[1].setImageResource(drawableResources.getMyBoatImageList().get(1));
+                imageViews[1].setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         userSelection = drawableResources.getMyBoatImageList().get(1);
                         checkBoatImagesAndAddToDataBase();
                     }
                 });
-                imageView3.setImageResource(drawableResources.getMyBoatImageList().get(2));
-                imageView3.setOnClickListener(new View.OnClickListener() {
+                imageViews[2].setImageResource(drawableResources.getMyBoatImageList().get(2));
+                imageViews[2].setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         userSelection = drawableResources.getMyBoatImageList().get(2);
                         checkBoatImagesAndAddToDataBase();
                     }
                 });
-                imageView4.setImageResource(drawableResources.getMyBoatImageList().get(3));
-                imageView4.setOnClickListener(new View.OnClickListener() {
+                imageViews[3].setImageResource(drawableResources.getMyBoatImageList().get(3));
+                imageViews[3].setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         userSelection = drawableResources.getMyBoatImageList().get(3);
                         checkBoatImagesAndAddToDataBase();
                     }
                 });
+
                 break;
             case 1:
                 imageView1.setImageResource(drawableResources.getMyForestImageList().get(0));
@@ -209,6 +214,7 @@ public class ChoiceFragment extends Fragment {
             countDatabase.addSelections(new TrackAverage(userSelection, computerSelection, 0));
         }
     }
+
     private void checkForestImagesAndAddToDataBase() {
         computerSelection = drawableResources.computerForestSelected();
         Log.d(TAG, "user selection : " + userSelection + "  computer selection " + computerSelection);
@@ -220,6 +226,7 @@ public class ChoiceFragment extends Fragment {
             countDatabase.addSelections(new TrackAverage(userSelection, computerSelection, 0));
         }
     }
+
     private void checkLakeImagesAndAddToDataBase() {
         computerSelection = drawableResources.computerLakeSelected();
         Log.d(TAG, "user selection : " + userSelection + "  computer selection " + computerSelection);

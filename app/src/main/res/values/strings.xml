@@ -13,6 +13,9 @@
     <string name="computer_selection_textview">Computer Selected</string>
     <string name="choice_frag_pick_one_textview">Pick One</string>
     <string name="main_frag_pick_one_from_below">Pick One From Below</string>
+    <string name="click_for_play_history_textview">Click for Play History</string>
+    <string name="you_selected_textview">You Selected</string>
+    <string name="computer_selected_textview">Computer Selected</string>
     <string-array name="labels_array">
         <item>Boat</item>
         <item>Forest</item>

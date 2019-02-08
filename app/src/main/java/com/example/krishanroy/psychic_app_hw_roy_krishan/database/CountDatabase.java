@@ -10,6 +10,9 @@ import android.util.Log;
 
 import com.example.krishanroy.psychic_app_hw_roy_krishan.model.TrackAverage;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static com.example.krishanroy.psychic_app_hw_roy_krishan.fragments.MainFragment.TAG;
 
 public class CountDatabase extends SQLiteOpenHelper {
@@ -42,11 +45,11 @@ public class CountDatabase extends SQLiteOpenHelper {
     }
 
     public void addSelections(TrackAverage trackAverage) {
-            getWritableDatabase().execSQL("INSERT INTO " + TABLE_NAME +
-                    "(user_selection, computer_selection, result) VALUES('" +
-                    trackAverage.getUserSelection() + "', '" +
-                    trackAverage.getComputerSelection() + "', '" +
-                    trackAverage.getResult() + "');");
+        getWritableDatabase().execSQL("INSERT INTO " + TABLE_NAME +
+                "(user_selection, computer_selection, result) VALUES('" +
+                trackAverage.getUserSelection() + "', '" +
+                trackAverage.getComputerSelection() + "', '" +
+                trackAverage.getResult() + "');");
     }
 
     public int getProfilesCount() {
@@ -63,6 +66,25 @@ public class CountDatabase extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery(" SELECT * FROM "
                 + TABLE_NAME + " WHERE result = '" + 1 + "'", null);
         return cursor.getCount();
+    }
+
+    public List<TrackAverage> getInputNotesList() {
+        List<TrackAverage> inputNotesList = new ArrayList<>();
+        TrackAverage trackAverage = null;
+        Cursor cursor = getReadableDatabase().rawQuery(
+                "SELECT * FROM " + TABLE_NAME + ";", null);
+        if (cursor != null) {
+            if (cursor.moveToFirst()) {
+                do {
+                    trackAverage = new TrackAverage(
+                            cursor.getInt(cursor.getColumnIndex("user_selection")),
+                            cursor.getInt(cursor.getColumnIndex("computer_selection")),
+                            cursor.getInt(cursor.getColumnIndex("result")));
+                    inputNotesList.add(trackAverage);
+                } while (cursor.moveToNext());
+            }
+        }
+        return inputNotesList;
     }
 
 }
