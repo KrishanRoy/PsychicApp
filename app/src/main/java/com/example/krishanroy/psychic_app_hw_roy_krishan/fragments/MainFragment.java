@@ -87,20 +87,7 @@ public class MainFragment extends Fragment {
                 button.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        switch (position) {
-                            case 0:
-                                listener.moveFromMainToChoiceFragment(0);
-                                Log.d(TAG, "onClick position is: " + position);
-                                break;
-                            case 1:
-                                listener.moveFromMainToChoiceFragment(1);
-                                Log.d(TAG, "onClick position is: " + position);
-                                break;
-                            case 2:
-                                listener.moveFromMainToChoiceFragment(2);
-                                Log.d(TAG, "onClick position is: " + position);
-                                break;
-                        }
+                        listener.moveFromMainToChoiceFragment(position);
                     }
                 });
             }
