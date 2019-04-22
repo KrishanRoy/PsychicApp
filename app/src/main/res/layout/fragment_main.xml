@@ -20,11 +20,12 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/button_background"/>
 
     <Spinner
         android:id="@+id/main_fragment_spinner"
-        android:layout_width="400dp"
+        android:layout_width="200dp"
         android:layout_height="70dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="72dp"
@@ -40,15 +41,16 @@
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
-        android:layout_height="23dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="152dp"
         android:layout_marginEnd="8dp"
-        android:textStyle="bold"
         android:fontFamily="sans-serif"
-        android:textSize="20sp"
         android:text="@string/main_frag_pick_one_from_below"
         android:textColor="@android:color/holo_orange_dark"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/main_fragment_spinner"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
